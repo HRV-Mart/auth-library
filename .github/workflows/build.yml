@@ -8,8 +8,9 @@ on:
   push:
     branches:
       - 'master'
-
-permissions: read-all
+env:
+  USERNAME: ${{secrets.OSSRH_USERNAME}}
+  TOKEN: ${{secrets.OSSRH_TOKEN}}
 jobs:
   build:
     name: Build
