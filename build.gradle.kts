@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.8.21"
 	kotlin("plugin.spring") version "1.8.21"
 	id("io.gitlab.arturbosch.detekt").version("1.23.0") // This is to add detekt
+	`maven-publish`
 }
 
 group = "com.hrv.mart"
@@ -19,15 +20,30 @@ repositories {
 	mavenCentral()
 	maven {
 		name = "GitHubPackages"
-		url = uri("https://maven.pkg.github.com/hrv-mart/auth-library")
+		url = uri("https://maven.pkg.github.com/hrv-mart/user-library")
 		credentials {
 			username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
 			password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
 		}
 	}
-
 }
-
+publishing {
+	repositories {
+		maven {
+			name = "GitHubPackages"
+			url = uri("https://maven.pkg.github.com/hrv-mart/auth-library")
+			credentials {
+				username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+				password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+			}
+		}
+	}
+	publications {
+		register<MavenPublication>("gpr") {
+			from(components["java"])
+		}
+	}
+}
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
