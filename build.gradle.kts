@@ -41,3 +41,7 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+detekt {
+	toolVersion = "1.23.0"
+	config = files("config/detekt/detekt.yml")
+}
