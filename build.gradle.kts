@@ -40,6 +40,8 @@ dependencies {
 	detektPlugins ("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.0")
 	// User Model
 	implementation("com.hrv.mart:user-library:0.0.3")
+	// API-Call
+	implementation("com.hrv.mart:api-call:0.0.3")
 }
 
 tasks.withType<KotlinCompile> {
