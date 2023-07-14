@@ -54,10 +54,11 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	// Detekt plugins
 	detektPlugins ("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.0")
-	// User Model
+	// HRV-Mart
 	implementation("com.hrv.mart:user-library:0.0.3")
-	// API-Call
 	implementation("com.hrv.mart:api-call:0.0.3")
+	// Mongo-DB
+	implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
 }
 
 tasks.withType<KotlinCompile> {
