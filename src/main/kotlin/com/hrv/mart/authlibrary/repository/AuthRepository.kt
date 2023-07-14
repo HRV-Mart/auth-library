@@ -1,8 +1,8 @@
 package com.hrv.mart.authlibrary.repository
 
 import com.hrv.mart.apicall.APICaller
-import com.hrv.mart.authlibrary.model.Auth
 import com.hrv.mart.authlibrary.model.AuthRequest
+import com.hrv.mart.authlibrary.model.AuthResponse
 import com.hrv.mart.authlibrary.model.UserType
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.server.reactive.ServerHttpResponse
@@ -24,6 +24,5 @@ class AuthRepository(
         createAuth(AuthRequest(jwt, UserType.USER), response)
     private fun createAuth(authRequest: AuthRequest, response: ServerHttpResponse) =
         apiCall
-            .postRequest(authServerUrl, Auth::class.java, authRequest, response)
-
+            .postRequest(authServerUrl, AuthResponse::class.java, authRequest, response)
 }
