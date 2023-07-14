@@ -8,8 +8,7 @@ data class AppWriteAuth (
     val updatedAt: String,
     val name: String,
     val email: String,
-    val emailVerification: Boolean,
-    val userType: UserType = UserType.USER
+    val emailVerification: Boolean
 ) {
     fun toUser() =
         User(
