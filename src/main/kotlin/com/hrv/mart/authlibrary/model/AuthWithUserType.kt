@@ -8,7 +8,7 @@ data class AuthWithUserType (
     val userType: UserType
 ) {
     companion object {
-        fun parseFrom (auth: AppWriteAuth, userType: UserType) =
+        fun parseFrom(auth: AppWriteAuth, userType: UserType) =
             AuthWithUserType(
                 userId = auth.userId,
                 userType = userType
