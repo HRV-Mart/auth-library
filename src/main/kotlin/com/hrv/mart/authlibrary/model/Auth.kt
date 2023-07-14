@@ -7,7 +7,8 @@ data class Auth (
     val updatedAt: String,
     val name: String,
     val email: String,
-    val emailVerification: Boolean
+    val emailVerification: Boolean,
+    val userType: UserType = UserType.USER
 ) {
     fun toUser() =
         User(
