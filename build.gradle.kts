@@ -2,10 +2,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	id("org.springframework.boot") version "3.1.1"
-	id("io.spring.dependency-management") version "1.1.2"
-	kotlin("jvm") version "1.8.21"
-	kotlin("plugin.spring") version "1.8.21"
-	id("io.gitlab.arturbosch.detekt").version("1.23.0") // This is to add detekt
+	id("io.spring.dependency-management") version "1.1.0"
+	kotlin("jvm") version "1.8.22"
+	kotlin("plugin.spring") version "1.8.22"
+	id("io.gitlab.arturbosch.detekt").version("1.23.1") // This is to add detekt
 	`maven-publish`
 }
 
@@ -53,7 +53,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	// Detekt plugins
-	detektPlugins ("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.0")
+	detektPlugins ("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.1")
 	// HRV-Mart
 	implementation("com.hrv.mart:user-library:0.0.3")
 	implementation("com.hrv.mart:api-call:0.0.3")
@@ -64,7 +64,6 @@ dependencies {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs += "-Xjsr305=strict"
-		jvmTarget = "17"
 	}
 }
 
@@ -72,6 +71,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 detekt {
-	toolVersion = "1.23.0"
+	toolVersion = "1.23.1"
 	config = files("config/detekt/detekt.yml")
 }
